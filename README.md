@@ -19,7 +19,14 @@ reactとfirebaseを使用し、スピード感を重視して作成しました�
 4. npm install react-firebase-hooks
 5. npm install @mui/material @emotion/react @emotion/styled
 6. npm install npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+7. npm install -g firebase-tools
+7. firebase init
+8. firebase login
+9. firebase init
+
+### デプロイ
+1. npm run build
+2. firebase deploy
 
 ### 作業コマンド
 1. npm start
-2. 
