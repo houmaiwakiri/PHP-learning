@@ -4,15 +4,17 @@ import { auth } from "../firebase.js";
 
 function SignOut() {
   const handleSignOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        alert("サインアウトしました。");
-      })
-      .catch((error) => {
-        // エラーが発生した場合の処理
-        console.error("サインアウト中にエラーが発生しました:", error);
-      });
+    const isConfirmed = window.confirm("サインアウトしますか？");
+    if (isConfirmed) {
+      auth
+        .signOut()
+        .then(() => {
+          alert("サインアウトしました");
+        })
+        .catch((error) => {
+          console.error("サインアウト中にエラーが発生しました:", error);
+        });
+    }
   };
 
   return (

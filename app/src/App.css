@@ -1,0 +1,18 @@
+.html {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* ビューポートの高さいっぱいに広がるようにする */
+}
+
+footer {
+  flex-shrink: 0;
+  /* フッターがコンテンツの高さを圧迫しないようにする */
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
