@@ -1,14 +1,13 @@
 import React from "react";
-import firebase from "firebase/compat/app";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { Button } from "@mui/material";
 
 import { auth } from "../firebase.js";
 
 function SignIn() {
   function signInWithGoogle() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth
-      .signInWithPopup(provider)
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
       // result.userは、Googleの認証成功後のユーザー情報を含む
       .then((result) => {
         console.log(result.user.email + "ログイン成功");
