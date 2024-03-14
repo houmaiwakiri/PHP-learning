@@ -4,7 +4,7 @@ import { auth } from "./firebase.js";
 
 import Header from "./components/Header.js";
 import Doc from "./components/Doc.js";
-import SignOut from "./components/SignOut.js";
+import GetDoc from "./components/GetDoc.js";
 import Footer from "./components/Footer.js";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="html">
       <Header />
-      {user ? <SignOut /> : <Doc />}
+      {user ? <GetDoc/> : <Doc />}
       <Footer />
     </div>
   );
