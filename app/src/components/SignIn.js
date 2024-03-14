@@ -20,7 +20,9 @@ function SignIn() {
 
   return (
     <div>
-      <Button onClick={signInWithGoogle}>ログイン</Button>
+      <Button color="inherit" onClick={signInWithGoogle}>
+        ログイン
+      </Button>
     </div>
   );
 }
