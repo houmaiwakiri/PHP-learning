@@ -5,7 +5,7 @@ import { experimentalStyled as styled } from "@mui/material/styles";
 import { db } from "../firebase";
 import { collection, getDocs, onSnapshot } from "firebase/firestore";
 
-function AddDoc() {
+function DocList() {
   const [classLists, setclassLists] = useState([]);
 
   useEffect(() => {
@@ -28,12 +28,12 @@ function AddDoc() {
     color: theme.palette.text.secondary,
     margin: theme.spacing(2),
     fontWeight: "bold",
-    fontSize: "1.2rem", 
+    fontSize: "1.2rem",
   }));
 
   return (
     <div>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1 }} >
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
@@ -50,4 +50,4 @@ function AddDoc() {
   );
 }
 
-export default AddDoc;
+export default DocList;
