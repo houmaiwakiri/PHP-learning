@@ -2,25 +2,37 @@
 
 import { Box, Button } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 // import { db } from '../firebase';
 
 function AddDoc() {
-  // const [posts, setPosts] useState([]);
+  function Add() {
+    console.log("addPopup");
+    setDoc(doc(db, "classLists", Popup()), {
+      name: SetPostData(),
+    });
+  }
+  function Popup() {
+    return "test1";
+  }
 
-  // useEffect(()=>{
+  function SetPostData() {
+    return "内容";
+  }
 
-  // },[]));
   return (
     <Box
       sx={{
         display: "flex",
         justifyContent: "center",
         alignItems: "flex-start",
-        height: "100vh",
+        height: "10vh",
       }}
     >
       <Button
+        onClick={Add}
         variant="contained"
         sx={{
           background: "linear-gradient(45deg, #2196F3 30%, #1976D2 90%)",
