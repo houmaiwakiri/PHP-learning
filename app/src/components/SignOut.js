@@ -9,7 +9,7 @@ function SignOut() {
       auth
         .signOut()
         .then(() => {
-          alert("サインアウトしました");
+          console.log("サインアウトしました");
         })
         .catch((error) => {
           console.error("サインアウト中にエラーが発生しました:", error);

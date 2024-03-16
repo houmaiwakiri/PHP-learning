@@ -20,7 +20,6 @@ function App() {
       <Header />
       <DocList />
       <AddDocCheck />
-      {/* {user ? <DocList/> : <DocList />} */}
       <Footer />
     </div>
   );

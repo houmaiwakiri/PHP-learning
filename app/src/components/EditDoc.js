@@ -6,17 +6,18 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
+  DialogContentText,
   DialogTitle,
   TextField,
 } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 import { db } from "../firebase";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 
 function AddDoc() {
   const [open, setOpen] = useState(false);
-  const [addData, setAddData] = useState({ className: "", detail: "" });
+  const [addData, setAddData] = useState("");
 
   const openPopup = () => {
     setOpen(true);
@@ -27,19 +28,16 @@ function AddDoc() {
   };
 
   const handleInputChange = (e) => {
-    setAddData({
-      // ...はスプレッド演算子で、オブジェクトの全プロパティを展開する。
-      ...addData,
-      [e.target.id]: e.target.value,
-    });
+    setAddData(e.target.value);
   };
 
   const registData = () => {
-    console.log(addData);
-    addDoc(collection(db, "classLists"), {
-      name: addData.className,
-      detail: addData.detail,
+    setDoc(doc(db, "classLists"), {
+      name: addData,
     });
+    // addDoc(collection(db, "cities"), {
+    //   name: addData,
+    // });
     setOpen(false);
   };
 
@@ -74,26 +72,17 @@ function AddDoc() {
 
       {/* ポップアップ表示 */}
       <Dialog open={open} onClose={closePopup}>
-        <DialogTitle>AddDocForm</DialogTitle>
+        <DialogTitle>データ入力</DialogTitle>
         <DialogContent>
+          <DialogContentText>データを入力してください。</DialogContentText>
           <TextField
             autoFocus
             margin="dense"
-            id="className"
-            label="ClassName"
+            id="data"
+            label="データ"
             type="text"
             fullWidth
-            value={addData["className"]}
-            onChange={handleInputChange}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="detail"
-            label="detail"
-            type="text"
-            fullWidth
-            value={addData["detail"]}
+            value={addData}
             onChange={handleInputChange}
           />
         </DialogContent>
