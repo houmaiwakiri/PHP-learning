@@ -10,16 +10,11 @@ import AddDoc from "./components/AddDoc.js";
 function App() {
   const [user] = useAuthState(auth);
 
-  function AddDocCheck() {
-    if (user) {
-      return <AddDoc />;
-    }
-  }
   return (
     <div className="html">
       <Header />
-      <DocList />
-      <AddDocCheck />
+      <DocList user={user} />
+      {user && <AddDoc />}
       <Footer />
     </div>
   );
