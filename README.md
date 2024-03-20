@@ -20,12 +20,13 @@ react と firebase、materiau UI を使用し、スピード感を重視して�
 2. npm install
 3. npm install firebase
 4. npm install react-firebase-hooks
-5. npm install @mui/material @emotion/react @emotion/styled
-6. npm install npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
-7. npm install -g firebase-tools
-8. firebase init
-9. firebase login
-10. firebase init
+5. npm install react-router-dom
+6. npm install @mui/material @emotion/react @emotion/styled
+7. npm install npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+8. npm install -g firebase-tools
+9. firebase init
+10. firebase login
+11. firebase init
 
 ### デプロイ
 
@@ -51,6 +52,6 @@ react と firebase、materiau UI を使用し、スピード感を重視して�
    | アカウント登録機能 | 4.0 | - | - |
    | ログイン機能 | 4.0 | - | - |
    | アカウント削除機能 | 3.0 | - | - |
-   | ドキュメント編集機能 | 4.0 | 3/16 | 0.5 |
+   | ドキュメント編集機能 | 4.0 | - | - |
 
 3/17 9:15~10:00 14:00~14:30 19:00~20:14　計2時間半

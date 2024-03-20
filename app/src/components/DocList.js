@@ -4,6 +4,7 @@ import { experimentalStyled as styled } from "@mui/material/styles";
 
 import { db } from "../firebase";
 import { collection, getDocs, onSnapshot } from "firebase/firestore";
+import DocDetail from "./pages/DocDetail";
 
 function DocList({user}) {
   const [classLists, setclassLists] = useState([]);
@@ -40,7 +41,8 @@ function DocList({user}) {
     return;
   };
 
-  const callGetDocDetails = () => {
+  const callGetDocDetail = () => {
+    <DocDetail />
     console.log("詳細を見る");
     return;
   };
@@ -94,7 +96,7 @@ function DocList({user}) {
         <Box p={2}>
           <Typography>{selectedDetail}</Typography>
           <Box textAlign="right" mt={1}>
-            <Link href="#" onClick={user ? callEditDoc : callGetDocDetails}>
+            <Link href="#" onClick={user ? callEditDoc : callGetDocDetail}>
               {user ? "編集する" : "詳細をみる"}
             </Link>
           </Box>
