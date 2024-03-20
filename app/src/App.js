@@ -1,20 +1,14 @@
 import "./App.css";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "./firebase.js";
+import MyRouter from "./MyRouter.js";
 
-import Header from "./components/Header.js";
-import Footer from "./components/Footer.js";
-import DocList from "./components/DocList.js";
-import AddDoc from "./components/AddDoc.js";
+import Header from "./components/Header.js"
+import Footer from "./components/Footer.js"
 
 function App() {
-  const [user] = useAuthState(auth);
-
   return (
-    <div className="html">
+    <div>
       <Header />
-      <DocList user={user} />
-      {user && <AddDoc />}
+      <MyRouter />
       <Footer />
     </div>
   );
