@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 
 function AddDoc() {
@@ -50,6 +50,7 @@ function AddDoc() {
         height: "10vh",
       }}
     >
+      <h1>jwpdo</h1>
       <Button
         onClick={openPopup}
         variant="contained"
