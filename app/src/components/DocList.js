@@ -4,12 +4,12 @@ import { experimentalStyled as styled } from "@mui/material/styles";
 
 import { db } from "../firebase";
 import { collection, getDocs, onSnapshot } from "firebase/firestore";
-import DocDetail from "./pages/DocDetail";
 
-function DocList({user}) {
+function DocList({ user }) {
   const [classLists, setclassLists] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedDetail, setSelectedDetail] = useState(null);
+  const [selectedName, setSelectedName] = useState(null);
 
   useEffect(() => {
     const classData = collection(db, "classLists");
@@ -25,26 +25,16 @@ function DocList({user}) {
     });
   }, []);
 
-  const handlePopoverOpen = (event, detail) => {
+  const handlePopoverOpen = (event, detail, name) => {
     setAnchorEl(event.currentTarget);
     setSelectedDetail(detail);
+    setSelectedName(name);
   };
 
   const handlePopoverClose = () => {
     // ポップバーclose時に、nullを代入しリセット
     setAnchorEl(null);
     setSelectedDetail(null);
-  };
-
-  const callEditDoc = () => {
-    console.log("編集");
-    return;
-  };
-
-  const callGetDocDetail = () => {
-    <DocDetail />
-    console.log("詳細を見る");
-    return;
   };
 
   const open = Boolean(anchorEl);
@@ -72,7 +62,11 @@ function DocList({user}) {
         >
           {classLists.map((classList) => (
             <Grid item xs={2} sm={4} md={4} key={classList.id}>
-              <div onClick={(e) => handlePopoverOpen(e, classList.detail)}>
+              <div
+                onClick={(e) =>
+                  handlePopoverOpen(e, classList.detail, classList.name)
+                }
+              >
                 <Item>{classList.name}</Item>
               </div>
             </Grid>
@@ -96,9 +90,11 @@ function DocList({user}) {
         <Box p={2}>
           <Typography>{selectedDetail}</Typography>
           <Box textAlign="right" mt={1}>
-            <Link href="#" onClick={user ? callEditDoc : callGetDocDetail}>
-              {user ? "編集する" : "詳細をみる"}
-            </Link>
+            {user ? (
+              <Link href={`/EditDoc/${selectedName}`}>編集する</Link>
+            ) : (
+              <Link href={`/DocDetail/${selectedName}`}>詳細を見る</Link>
+            )}
           </Box>
         </Box>
       </Popover>
